@@ -14,7 +14,7 @@ module.exports = {
     devtool: "source-map",
     entry: {
         libs: path.resolve(srcDir, 'libs.ts'),
-        app: path.resolve(srcDir, 'bootstrap.ts')
+        app: path.resolve(srcDir, 'main.ts')
     },
     output: {
         path: __dirname + outputDir,
@@ -26,9 +26,6 @@ module.exports = {
         extensions: ['.ts', '.component.ts', '.service.ts', '.js', '.component.html', '.component.less', '.less', '.css']
     },
     module: {
-        rules: [
-            {test: /\.ts$/, enforce: 'pre', loader: 'tslint'}
-        ],
         loaders: [
             {test: /(\.component|\.service|)\.ts$/, loader: 'ts-loader'},
             {test: /\.component\.html$/, loader: 'raw'},
@@ -43,7 +40,7 @@ module.exports = {
             {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"},
             {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"}
         ],
-        noParse: [path.join(__dirname, 'node_modules', 'angular2', 'bundles')]
+        noParse: [path.join(__dirname, 'node_modules')]
     },
     plugins: [
         // uncomment this code for production
