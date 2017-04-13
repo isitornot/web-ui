@@ -1,0 +1,37 @@
+{
+  "name": "isitornot",
+  "version": "1.0.0",
+  "description": "IsItOrNot.com Web Gui",
+  "author": "Trevor R.H. Clarke <trevor@notcows.com>",
+  "license": "GPL-3.0",
+  "scripts": {
+    "start": "webpack-dev-server --open --port 8200 --host 0.0.0.0 --content-base build"
+  },
+  "repository": "https://github.com/isitornot/web-ui.git",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "scaleapp": "^0.4.4"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "html-webpack-plugin": "^2.28.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "optimize-js-plugin": "0.0.4",
+    "raw-loader": "^0.5.1",
+    "script-ext-html-webpack-plugin": "^1.7.1",
+    "style-loader": "^0.16.1",
+    "to-string-loader": "^1.1.5",
+    "ts-loader": "^2.0.3",
+    "tslint": "^5.1.0",
+    "tslint-loader": "^3.5.2",
+    "typescript": "^2.2.2",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.3.3",
+    "webpack-cleanup-plugin": "^0.5.1",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
