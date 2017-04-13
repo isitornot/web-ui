@@ -13,17 +13,16 @@ var outputDir = 'build';
 module.exports = {
     devtool: "source-map",
     entry: {
-        libs: path.resolve(srcDir, 'libs.ts'),
-        app: path.resolve(srcDir, 'main.ts')
+        app: path.resolve(srcDir, 'app.ts')
     },
     output: {
-        path: __dirname + outputDir,
+        path: path.resolve(__dirname, outputDir),
         filename: '[name].[hash].bundle.js',
         sourceMapFilename: '[name].[hash].map',
         chunkFilename: '[id].[hash].chunk.js'
     },
     resolve: {
-        extensions: ['.ts', '.component.ts', '.service.ts', '.js', '.component.html', '.component.less', '.less', '.css']
+        extensions: ['.ts', '.js', '.html', '.less', '.css']
     },
     module: {
         loaders: [
@@ -31,27 +30,27 @@ module.exports = {
             {test: /\.component\.html$/, loader: 'raw'},
             {test: /(\.component|)\.less$/, loader: 'to-string!css!less'},
             {test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })},
-            {test: /\.(png|gif|jpg)$/, loader: "file?name=images/[name].[ext]"},
-            // For font-awesome, created by Turbo87:
-            // https://gist.github.com/Turbo87/e8e941e68308d3b40ef6
-            {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"},
-            {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"},
-            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"},
-            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"},
-            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"}
+            {test: /\.(png|gif|jpg)$/, loader: "file?name=images/[name].[ext]"}
+//             For font-awesome, created by Turbo87:
+//             https://gist.github.com/Turbo87/e8e941e68308d3b40ef6
+            // {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"},
+            // {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"},
+            // {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"},
+            // {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"},
+            // {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=fonts/[name].[ext]"}
         ],
         noParse: [path.join(__dirname, 'node_modules')]
     },
     plugins: [
-        // uncomment this code for production
-        // new webpack.optimize.UglifyJsPlugin({
-        //     sourceMap: false,
-        //     mangle: true
-        // }),
-        new ExtractTextPlugin("[name].[contenthash].css"),
+    //     uncomment this code for production
+    //     new webpack.optimize.UglifyJsPlugin({
+    //         sourceMap: false,
+    //         mangle: true
+    //     }),
+        // new ExtractTextPlugin("[name].[contenthash].css"),
         new HtmlWebpackPlugin({
-            template: path.resolve(srcDir, 'index.html'),
-            inject: true
+            // template: path.resolve(srcDir, 'index.js'),
+            // inject: true
         }),
         new ScriptExtHtmlWebpackPlugin({
             defaultAttribute: 'defer'
