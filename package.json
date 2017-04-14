@@ -5,33 +5,35 @@
   "author": "Trevor R.H. Clarke <trevor@notcows.com>",
   "license": "GPL-3.0",
   "scripts": {
-    "start": "webpack-dev-server --open --port 8200 --host 0.0.0.0 --content-base build"
+    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
-  "repository": "https://github.com/isitornot/web-ui.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isitornot/web-ui.git"
+  },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "scaleapp": "^0.4.4"
   },
   "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
     "css-loader": "^0.28.0",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "file-loader": "^0.11.1",
+    "es-module-loader": "^2.1.5",
+    "favicons-webpack-plugin": "0.0.7",
     "html-webpack-plugin": "^2.28.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
-    "optimize-js-plugin": "0.0.4",
-    "raw-loader": "^0.5.1",
-    "script-ext-html-webpack-plugin": "^1.7.1",
+    "node-libs-browser": "^2.0.0",
+    "postcss-loader": "^1.3.3",
+    "postcss-smart-import": "^0.6.11",
+    "precss": "^1.4.0",
     "style-loader": "^0.16.1",
-    "to-string-loader": "^1.1.5",
-    "ts-loader": "^2.0.3",
-    "tslint": "^5.1.0",
-    "tslint-loader": "^3.5.2",
-    "typescript": "^2.2.2",
-    "url-loader": "^0.5.8",
     "webpack": "^2.3.3",
-    "webpack-cleanup-plugin": "^0.5.1",
     "webpack-dev-server": "^2.4.2"
   }
 }
