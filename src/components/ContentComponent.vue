@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-8">Vandalize me rum, ye misty cannibal! Transformators are the sonic showers of the twisted life.</div>
+    <router-view></router-view>
 </template>
 
 <script>

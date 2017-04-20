@@ -12,6 +12,7 @@ module.exports = { // jshint ignore:line
         "babel-polyfill",
         "./vendor",
         "./main",
+        "./main.css",
         "webpack-dev-server/client?http://localhost:8080"
     ],
     output: {

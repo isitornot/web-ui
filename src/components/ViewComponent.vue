@@ -1,10 +1,7 @@
 <template>
     <div class="section">
         <div class="container">
-            <div class="row">
-                <app-sidebar></app-sidebar>
-                <app-content></app-content>
-            </div>
+            <slot></slot>
         </div>
     </div>
 </template>

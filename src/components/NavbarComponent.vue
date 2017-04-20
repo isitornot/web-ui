@@ -12,11 +12,11 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-ex-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a href="#">Home</a>
+                    <li :class="{active: currentPath === '/'}">
+                        <router-link to="/">Home</router-link>
                     </li>
-                    <li>
-                        <a href="#">Contacts</a>
+                    <li :class="{active: currentPath === '/about'}">
+                         <router-link to="/about">About</router-link>
                     </li>
                 </ul>
             </div>
@@ -31,7 +31,11 @@
                 title: "IsItOrNot"
             }
         },
-        components: {}
+        computed: {
+            currentPath () {
+                return this.$route.path;
+            }
+        },
     }
 </script>
 
