@@ -1,8 +1,9 @@
 <template>
     <div class="section">
-        <div class="container">
-            <slot></slot>
-        </div>
+        <ol class="breadcrumb">
+            <li v-for="(crumb, index) in breadcrumbs"><a href="#" :class="{active: isLastBreadcrumb}">{{ crumb.text }}</a></li>
+        </ol>
+        <slot></slot>
     </div>
 </template>
 
@@ -11,7 +12,19 @@
     import SidebarComponent from "./SidebarComponent.vue";
     export default {
         data () {
-            return {}
+            return {
+                breadcrumbs: [
+                    {text: "Root"},
+                    {text: "Parent"},
+                    {text: "Child"},
+                    {text: "Grandchild"}
+                ]
+            }
+        },
+        methods: {
+            isLastBreadcrumb(idx) {
+                return idx == (this.breadcrumbs.length - 1);
+            }
         },
         components: {
             'app-content': ContentComponent,

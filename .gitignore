@@ -115,3 +115,4 @@ Temporary Items
 
 .idea/
 build/
+!/src/main.js
