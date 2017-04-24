@@ -12,11 +12,8 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li :class="{active: currentPath === '/'}">
-                        <router-link to="/">Home</router-link>
-                    </li>
-                    <li :class="{active: currentPath === '/about'}">
-                        <router-link to="/about">About</router-link>
+                    <li v-for="entry in navEntries">
+                        <router-link :to="entry.path">{{ entry.name }}</router-link>
                     </li>
                 </ul>
                 <form class="navbar-form navbar-right search-form" role="search">
@@ -38,6 +35,22 @@
         computed: {
             currentPath () {
                 return this.$route.path;
+            },
+            navEntries () {
+                /* This seems to be using a member not listed in the API
+                   I'm not sure if it includes dynamic route, so this might
+                   need to be changed. Works for the time being.
+                 */
+                let entries = [];
+                for (const route of this.$router.options.routes) {
+                    if ('navName' in route.meta) {
+                        entries.push({
+                            path: route.path,
+                            name: route.meta['navName']
+                        });
+                    }
+                }
+                return entries;
             }
         },
     }

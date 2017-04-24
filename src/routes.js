@@ -11,8 +11,8 @@ const RootComponent = resolve => {
 };
 
 const routes = [
-    {path: "/",             component: RootComponent},
-    {path: "/about",        component: AboutComponent}
+    {path: "/",             component: RootComponent,       meta: {navName: "Home"}},
+    {path: "/about",        component: AboutComponent,      meta: {navName: "About"}}
 ];
 
 export default routes;

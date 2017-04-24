@@ -67,7 +67,8 @@ if (process.env.NODE_ENV === 'production') {
     new Clean([ './dist' ]),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"'
+          NODE_ENV: '"production"',
+          API_BASE: '"/api/v1"'
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
@@ -77,4 +78,12 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.optimize.OccurenceOrderPlugin()
   ]);
+} else {
+    module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.DefinePlugin({
+            'process.env': {
+                API_BASE: '"http://localhost:9000/v1"'
+            }
+        })
+    ]);
 }

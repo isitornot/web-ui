@@ -10,7 +10,9 @@
 <script>
     export default {
         data () {
-            return {}
+            return {
+                navName: "About"
+            }
         },
         components: {}
     }
