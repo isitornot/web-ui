@@ -34,7 +34,7 @@
                     square and 64 or 32 pixels wide.</span>
                 </div>
                 <div class="col-md-1">
-                    <img ref="preview" :class="{hidden: !previewLoaded}" class="image-responsive img-thumbnail preview"/>
+                    <img ref="preview" :class="{hidden: !previewLoaded}" class="img-responsive img-thumbnail preview"/>
                 </div>
             </div>
             <div class="form-group">
