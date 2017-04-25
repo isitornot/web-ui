@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">IsIt <span class="community-title">{{ title }}</span> OrNot</a>
+                <a class="navbar-brand" href="#">IsIt <span class="community-title">{{ communityTitle }}</span> OrNot</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -27,14 +27,14 @@
 <script>
     export default {
         data () {
-            return {
-                title: "       ",
-                searchIsActive: false
-            }
+            return {};
         },
         computed: {
-            currentPath () {
-                return this.$route.path;
+            communityTitle () {
+                if ('slug' in this.$route.params) {
+                    return this.$route.params.slug;
+                }
+                return "     ";
             },
             navEntries () {
                 /* This seems to be using a member not listed in the API
@@ -43,7 +43,7 @@
                  */
                 let entries = [];
                 for (const route of this.$router.options.routes) {
-                    if ('navName' in route.meta) {
+                    if (route.meta && 'navName' in route.meta) {
                         entries.push({
                             path: route.path,
                             name: route.meta['navName']

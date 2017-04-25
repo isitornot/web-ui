@@ -16,19 +16,24 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">Discover Other Communities</div>
-            <div class="panel-body">A list of other communities is here</div>
+            <div class="panel-body"><app-communities summary :max="15"></app-communities>
+                <router-link to="/communities" class="btn btn-default btn-xs" role="button">See All</router-link>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+    import CommunityComponent from "./CommunityComponent.vue";
     export default {
         data () {
             return {
                 tags: ["tag1", "tag2", "tag3", "tag4", "tag5"]
             }
         },
-        components: {}
+        components: {
+            "app-communities": CommunityComponent
+        }
     }
 </script>
 

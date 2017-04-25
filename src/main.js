@@ -28,10 +28,12 @@ const ViewComponent = resolve => {
     }, "group-layout");
 };
 
+import CommunityService from "./services/CommunityService";
 import routes from "./routes";
 
 Vue.use(VueRouter);
 const router = new VueRouter({routes});
+let busA = new Vue();
 let vm = new Vue({
     el: "#app",
     router: router,
@@ -41,5 +43,10 @@ let vm = new Vue({
         'app-navbar': NavbarComponent,
         'app-sidebar': SidebarComponent,
         'app-view': ViewComponent
+    },
+    data: {
+        CommunityService: new CommunityService(process.env.API_BASE),
+        communityTitle: "     ",
+        buses: [busA]
     }
 });
